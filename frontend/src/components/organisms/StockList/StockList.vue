@@ -1,12 +1,16 @@
 <template>
   <div class="grid gap-4" :class="gridClasses">
-    <StockCard v-for="stock in stocks" :key="stock.name" :stock="stock" @buy=""></StockCard>
+    <StockCard v-for="stock in stocks" :key="stock.name" :stock="stock" @buy="BuyStock"></StockCard>
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import StockCard from '../StockCard/StockCard.vue'
+
+function BuyStock() {
+  alert("Stock puchased: " + stock.name + " at " + stock.price);
+}
 
 const props = defineProps({
   stocks: {

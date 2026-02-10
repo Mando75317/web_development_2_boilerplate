@@ -4,7 +4,8 @@
         <StockInfo :stock="stock" />
         <StockPrice :stock="stock" />
       </div>
-      <button type="button" >Buy</button>
+      
+      <a href="#" @click="emits('buy', stock.name)">Buy</a>
     </div>
 </template>
 
@@ -12,7 +13,7 @@
 import StockInfo from '../../molecules/StockInfo/StockInfo.vue'
 import StockPrice from '../../molecules/StockPrice/StockPrice.vue'
 
-const emits = defineEmits(['buy', 'sell'])
+const emits = defineEmits(['buy'])
 
 const props = defineProps({
   stock: {
@@ -20,8 +21,5 @@ const props = defineProps({
     required: true
   }
 })
-
-
-
 
 </script>
