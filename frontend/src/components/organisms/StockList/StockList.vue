@@ -13,6 +13,8 @@
 import { computed } from 'vue'
 import StockCard from '../StockCard/StockCard.vue'
 
+const totalMoney = ref(1000)
+
 const props = defineProps({
   stocks: {
     type: Array,
@@ -29,6 +31,10 @@ const props = defineProps({
     type: Number,
     default: 1,
     validator: (value) => value >= 1 && value <= 4
+  },
+  totalMoney: {
+    type: Number,
+    require: true
   }
 })
 
@@ -46,6 +52,7 @@ const handleBuy = (tickerSymbol) => {
   const stock = props.stocks.find(s => s.name === tickerSymbol)
   if (stock) {
     alert(`Stock purchased: ${tickerSymbol} at $${stock.price.toFixed(2)}`)
+    totalMoney -= stock.price.toFixed(2)
   }
 }
 </script>

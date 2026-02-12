@@ -1,5 +1,6 @@
 <template>
   <StockTickerTemplate>
+    <Portfolio/>
     <StockList :stocks="stocks" :columns="2" />
   </StockTickerTemplate>
 </template>
@@ -8,6 +9,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import StockTickerTemplate from '../../templates/StockTickerTemplate/StockTickerTemplate.vue'
 import StockList from '../../organisms/StockList/StockList.vue'
+import Portfolio from '@/components/organisms/Portfolio/Portfolio.vue'
 
 const stocks = ref([])
 let priceUpdateInterval = null
